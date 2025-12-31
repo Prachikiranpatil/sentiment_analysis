@@ -8,7 +8,7 @@ MODEL_NAME = f"cardiffnlp/twitter-xlm-roberta-base-sentiment"
 class SentimentAnalyzer:
     def __init__(self):
         print("Loading model...")
-        self.tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+        self.tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME, use_fast=False)
         self.model = AutoModelForSequenceClassification.from_pretrained(MODEL_NAME)
         self.labels = ['Negative', 'Neutral', 'Positive']
         print("Model loaded.")

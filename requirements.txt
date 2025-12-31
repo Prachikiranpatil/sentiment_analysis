@@ -4,3 +4,4 @@ torch
 langdetect
 scipy
 numpy
+sentencepiece

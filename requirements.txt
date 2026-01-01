@@ -5,3 +5,5 @@ langdetect
 scipy
 numpy
 sentencepiece
+deep-translator
+pycountry

@@ -1,5 +1,6 @@
 from langdetect import detect, DetectorFactory
 from langdetect.lang_detect_exception import LangDetectException
+import pycountry
 
 # Enforce consistent results
 DetectorFactory.seed = 0
@@ -23,3 +24,18 @@ def detect_language(text):
         return lang
     except LangDetectException:
         return "unknown"
+
+def get_language_name(code):
+    """
+    Returns the full name of the language given its code.
+    """
+    if code == 'unknown':
+        return "Unknown"
+    
+    try:
+        lang = pycountry.languages.get(alpha_2=code)
+        if lang:
+            return lang.name
+        return code
+    except:
+        return code
